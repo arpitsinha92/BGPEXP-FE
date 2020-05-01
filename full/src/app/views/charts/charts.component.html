@@ -1,0 +1,135 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+<button *ngIf="showdiv" mat-raised-button color="primary" style="margin-left: 5px" (click)="addSprinter()">Add Sprinter</button>
+    </div>
+  </div>
+
+ <div class="row"*ngIf="showtable">
+  <div class="col-lg-12">
+  <mat-card class="p-0"   [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+    <mat-card-content class="p-0">
+      <ngx-datatable
+            class="material ml-0 mr-0"
+            [rows]="DispatchersList"
+            [columnMode]="'flex'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [limit]="10"
+            [rowHeight]="'auto'">
+            <ngx-datatable-column name="Dispatcher Name" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.name}}
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Mobile number" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.mobile}}
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Pan Card" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.pan_number}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Aadhar Card" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.aadhar_number}}
+              </ng-template>
+            </ngx-datatable-column>
+
+
+            <ngx-datatable-column name="Driving License" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.driving_license}}
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Actions" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <button mat-icon-button mat-sm-button color="primary" title="Edit" class="mr-1" (click)="editDispatcher(row)"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button mat-sm-button color="warn" title="Delete" (click)="deletedispatcher(row)"><mat-icon>delete</mat-icon></button>
+
+              </ng-template>
+            </ngx-datatable-column>
+
+
+          </ngx-datatable>
+    </mat-card-content>
+  </mat-card>
+ </div>
+</div>
+
+  <div class="row" *ngIf="showformdiv">
+    <div class="col-lg-6">
+      <label><strong>Name of Sprinter</strong></label><br/>
+      <input type="text" [(ngModel)]="nameSprinter" name="name"   placeholder="Name of Sprinter">
+    </div>
+    <br/>
+
+    <br/>
+    <div class="col-lg-6">
+      <label><strong>Mobile Number</strong></label><br/>
+      <input type="text" name="name" [(ngModel)]="mobile"  placeholder="Mobile Number">
+    </div>
+    <br/>
+    <div class="col-lg-6">
+      <label><strong>Address</strong></label><br/>
+      <textarea name="Address" [(ngModel)]="address" placeholder="Address"></textarea>
+    </div>
+    <br/>
+    <div class="col-lg-6">
+      <label><strong>Driving Licence</strong></label><br/>
+      <input type="text" name="name" [(ngModel)]="drivingLicence"  placeholder="Driving Licence">
+    </div>
+    <br/>
+    <br/>
+    <div class="col-lg-6">
+      <label><strong>Pan Card</strong></label><br/>
+      <input type="text" name="name" [(ngModel)]="pancard"  placeholder="Pan Card">
+    </div>
+    <br/>
+    <div class="col-lg-6">
+      <label><strong>Aadhar card</strong></label><br/>
+      <input type="text" name="name" [(ngModel)]="aadharcard"  placeholder="Aadhar card">
+    </div>
+    <br/>
+
+    <div class="col-lg-6">
+      <label><strong>Image</strong></label><br/>
+      <input type='file'  (change)="onfileSelectorsprinter($event)">
+</div>
+<br/>
+
+<div class="col-lg-6">
+  <label><strong>License Image</strong></label><br/>
+  <input type='file'  (change)="onfileSelectorlicense($event)">
+</div>
+<br/>
+
+<div class="col-lg-6">
+  <label><strong>Pan Card</strong></label><br/>
+  <input type='file'  (change)="onfileSelectorpancard($event)">
+</div>
+
+<br/>
+
+<div class="col-lg-6">
+  <label><strong>Aadhar card</strong></label><br/>
+  <input type='file'  (change)="onfileSelectoraadharcard($event)">
+</div>
+
+<div class="col-lg-12">
+  <br/>
+  <button mat-raised-button  (click)="saveSprinter()" color="primary">{{buttonFunction}}</button>
+  &nbsp;<button mat-raised-button  (click)="clearFields()" color="warn">Clear</button>
+</div>
+
+  </div>
+</div>
+
+
+

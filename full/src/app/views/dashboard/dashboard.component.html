@@ -1,0 +1,304 @@
+<hr>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+<button mat-raised-button color="primary" class="float-right" *ngIf="showbutton" (click)="showProductFrom()">Add Product</button>
+
+
+<div *ngIf="ProductDescription">
+  <button mat-raised-button color="primary" class="float-left"  (click)="backtoProductmainScreen()">Back</button>
+  <br/>
+  <br/>
+  <div class="form-row mb-2">
+    <div class="col">
+            <label><strong>Product Name</strong></label><br/>
+           {{descriptionProductName}}
+    </div>
+
+    <div class="col">
+      <label><strong>Category Name</strong></label><br/>
+     {{descriptionCategoryName}}
+</div>
+
+  </div>
+
+  <div class="form-row mb-2">
+
+    <div class="col">
+      <label><strong>Product Hindi Name</strong></label><br/>
+     {{descriptionProductHindiName}}
+</div>
+
+<div class="col">
+<label><strong>Image</strong></label><br/>
+{{descriptionImage}}
+</div>
+
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
+  <mat-card class="p-0"  [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+    <mat-card-content class="p-0">
+      <ngx-datatable
+            class="material ml-0 mr-0"
+            [rows]="ProductDescriptionList" 
+            [columnMode]="'flex'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [limit]="10"
+            [rowHeight]="'auto'">
+            <ngx-datatable-column name="Quantity" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.quantity}} 
+              </ng-template>
+            </ngx-datatable-column> 
+  
+            <ngx-datatable-column name="Unit" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.unit}} 
+              </ng-template>
+            </ngx-datatable-column> 
+  
+            <ngx-datatable-column name="Price" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.price}} 
+              </ng-template>
+            </ngx-datatable-column> 
+             
+          
+          </ngx-datatable>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<div *ngIf="ProductForm">
+<div class="form-row mb-4">
+  <div class="col">
+          <label><strong>Product Name</strong></label><br/>
+          <input type="text" name="Productname" [(ngModel)]="Productname" placeholder="Product Name">
+  </div>
+
+  
+  <div class="col">
+          <label><strong>Category Name</strong></label><br/>
+          
+          <select [(ngModel)]="Category" style="width: 35%;" placeholder="Category Name">
+              <!-- <option value="0">--Select Category--</option> -->
+              <option *ngFor="let s of summaries"  value={{s._id}} >
+                  {{s.name}}
+              </option>
+          </select>
+
+
+          <!-- <input type="text" name="Category" [(ngModel)]="Category" placeholder="Category"> -->
+  </div>
+</div>
+
+<div class="form-row mb-4">
+  <div class="col">
+          <label><strong>Hindi Product Name</strong></label><br/>
+          <input type="text" name="HindiProductname" [(ngModel)]="HindiProductname" placeholder="Hindi Product Name">
+  </div>
+ 
+  <div class="col">
+          <label><strong>Image</strong></label><br/>
+          <input type='file' [(ngModel)]='image' (change)="onfileSelector($event)">
+  </div>
+</div>
+
+<div class="col-md-2" [formGroup]="addForm">
+  <div class="form-group">
+      <label class="label-control">Add quantity</label>
+      <br>
+      <label class="switch">
+  <input type="checkbox" class="form-control" formControlName="items">
+  <span class="slider round">
+    <span class="on">
+      {{addForm.value.items_value}}
+    </span> 
+    <span class="off">
+      {{addForm.value.items_value}}
+    </span>
+  </span>
+  </label>
+      
+      <table>
+          <thead>
+              <button (click)="onAddRow()" *ngIf="addForm.get('rows')">Add Qty</button>
+          </thead>
+          <tbody>
+              <tr *ngFor="let row of addForm.get('rows')?.controls;let index = index;">
+        <td>
+          Quantity : <input [formControl]="row.get('quantity')">
+        </td>
+        <td>
+          Unit : <input [formControl]="row.get('unit')">
+        </td>
+        <td>
+          Price : <input [formControl]="row.get('price')">
+        </td>
+        <td>
+          <button (click)="onRemoveRow(index)">Remove</button>
+        </td>
+              </tr>
+          </tbody>
+      </table>
+<br/>
+      <button mat-raised-button  (click)="saveProduct()" color="primary">{{BtnName}}</button>
+      &nbsp;<button mat-raised-button  (click)="clearFields()" color="warn">Clear</button>
+     
+
+      <!-- <pre>{{rows.value | json}}</pre> -->
+  </div>
+</div>
+</div>
+
+<br/>
+<br/>
+<br/>
+<mat-card class="p-0"  *ngIf="showbutton" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+  <mat-card-content class="p-0">
+    <ngx-datatable
+          class="material ml-0 mr-0"
+          [rows]="ProductList" 
+          [columnMode]="'flex'"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [limit]="10"
+          [rowHeight]="'auto'">
+          <ngx-datatable-column name="Product Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+             {{row?.name}} 
+            </ng-template>
+          </ngx-datatable-column> 
+
+          <ngx-datatable-column name="Hindi Product Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+             {{row?.hindi_name}} 
+            </ng-template>
+          </ngx-datatable-column> 
+
+          <ngx-datatable-column name="Category Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+             {{row?.category_id.name}} 
+            </ng-template>
+          </ngx-datatable-column> 
+           
+          <ngx-datatable-column name="Actions" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <button mat-icon-button mat-sm-button color="primary" title="Edit" class="mr-1" (click)="editProduct(row)"><mat-icon>edit</mat-icon></button>
+              
+              <button mat-icon-button mat-sm-button color="accent" title="Description" (click)="productDetails(row)"><mat-icon>description</mat-icon></button>
+              
+              <button mat-icon-button mat-sm-button color="warn" title="Delete" (click)="deleteProduct(row)"><mat-icon>delete</mat-icon></button>
+         
+
+             
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+  </mat-card-content>
+</mat-card>
+</div>
+</div>
+
+</div>
+
+
+
+
+<style>
+  body {
+
+color: green
+}
+.switch {
+position: relative;
+display: inline-block;
+width: 90px;
+height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #FF586B;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+.slider:before {
+position: absolute;
+content: "";
+height: 26px;
+width: 26px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+-webkit-transition: .4s;
+transition: .4s;
+}
+
+input:checked + .slider {
+background-color: #0CC27E;
+}
+
+input:focus + .slider {
+box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+-webkit-transform: translateX(55px);
+-ms-transform: translateX(55px);
+transform: translateX(55px);
+}
+
+/*------ ADDED CSS ---------*/
+.on
+{
+display: none;
+}
+
+.on, .off
+{
+color: white;
+position: absolute;
+transform: translate(-50%,-50%);
+top: 50%;
+}
+
+.on 
+{
+left: 45%;
+}
+
+.off 
+{
+left: 55%;
+}
+
+input:checked+ .slider .on
+{display: block;}
+
+input:checked + .slider .off
+{display: none;}
+
+/*--------- END --------*/
+
+/* Rounded sliders */
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;}
+  </style>

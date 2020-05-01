@@ -1,0 +1,57 @@
+/*
+ *
+ *   EGRET - Angular Material Design Admin Template
+ *
+ *
+*/
+
+//  @import '../../websitestyle/css/open-iconic-bootstrap.min.css';
+//  @import '../../websitestyle/css/animate.css';
+//  @import '../../websitestyle/css/owl.carousel.min.css';
+//  @import '../../websitestyle/css/owl.theme.default.min.css';
+// @import '../../websitestyle/css/magnific-popup.css';
+//  @import '../../websitestyle/css/aos.css';
+//  @import '../../websitestyle/css/ionicons.min.css';
+//  @import '../../websitestyle/css/bootstrap-datepicker.css';
+// @import '../../websitestyle/css/jquery.timepicker.css';
+//  @import '../../websitestyle/css/flaticon.css';
+//  @import '../../websitestyle/css/icomoon.css';
+//  @import '../../websitestyle/css/style.css';
+// // Third pirty style files
+// Sidebar Scroll
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+
+//  star-rating styles (Used in Shop app)
+@import "~css-star-rating/scss/star-rating.scss";
+// Data Table
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+// Rich Text Editor
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+// Drag and Drop
+@import '~dragula/dist/dragula.css';
+// Calendar
+@import '~angular-calendar/css/angular-calendar.css';
+
+// User tour
+@import '~hopscotch/dist/css/hopscotch.min.css';
+// Page loader Topbar
+@import '../../vendor/pace/pace-theme-min.css';
+
+
+
+// Main Variables File
+@import "scss/variables";
+
+// Open _themes.scss and remove unnecessary theme files
+@import "scss/themes";
+
+// Open _main.scss and keep files which are required for your current layout.
+@import "scss/main";
+
+// Open _views.scss and remove unnecessary view related files
+@import "scss/views";
+
+
