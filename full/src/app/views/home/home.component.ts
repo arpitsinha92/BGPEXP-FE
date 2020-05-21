@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   /****** Only for demo) **********/
 //apiUrl:any="http://192.168.2.27:99";
   username: string;
-  ApiUrl: string ='http://192.168.0.7:5000/webUser/login';
+  ApiUrl: string ='http://192.168.0.101:5000/webUser/login';
   password: string;
   data: any;
   msg: any;
@@ -239,6 +239,9 @@ authenticateUser()
 this.data.subscribe(data =>{
 this.msg = data.message;
 this.token = data.token;
+
+alert(this.token);
+
 localStorage.setItem("tokenvalue",this.token);
 if(this.msg == "Login Successful")
 {

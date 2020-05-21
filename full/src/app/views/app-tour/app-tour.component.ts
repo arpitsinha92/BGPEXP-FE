@@ -37,7 +37,7 @@ export interface Category {
 
 export class AppTourComponent implements OnInit, OnDestroy {
 
-  ApiUrl: any='http://192.168.0.104:3000/';
+  ApiUrl: any='http://192.168.0.101:5000/';
   url : any = this.ApiUrl+ 'category';
   category: string;
 selectedFile: File = null;

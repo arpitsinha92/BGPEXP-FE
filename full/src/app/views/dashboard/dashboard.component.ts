@@ -53,7 +53,7 @@ export interface status {
   animations: egretAnimations
 })
 export class DashboardComponent implements OnInit {
-  ApiUrl: any='http://192.168.0.104:3000/';
+  ApiUrl: any='http://192.168.0.101:5000/';
   url : any = this.ApiUrl+ 'product';
   urlCat : any = this.ApiUrl+ 'category';
   selectedFile: File = null;
@@ -161,8 +161,7 @@ this.getAllProduct();
 
   getAllProduct()
   {
-    this.accesstoken = localStorage.getItem("tokenalue");
-    this.data = this.httpClient.get(this.url, this.accesstoken);
+    this.data = this.httpClient.get(this.url);
     this.data.subscribe(data =>{
       this.ProductList = data.products;
     ;
@@ -171,9 +170,7 @@ this.getAllProduct();
 
 
   getAllCategory() {
-
-    this.accesstoken = localStorage.getItem("tokenalue");
-    this.data = this.httpClient.get(this.urlCat, this.accesstoken);
+    this.data = this.httpClient.get(this.urlCat);
    this.data.subscribe(data =>{
      this.summaries = data.category;
    ;
@@ -186,8 +183,6 @@ this.getAllProduct();
   prodID: any;
   saveProduct()
   {
-
-    this.accesstoken = localStorage.getItem("tokenalue");
     if(this.BtnName == 'Update')
     {
 
@@ -198,8 +193,7 @@ this.getAllProduct();
         name : this.Productname,
         category_id : this.Category,
         hindi_name : this.HindiProductname,
-        quantity : this.rows.value,
-        accesstoken : this.accesstoken
+        quantity : this.rows.value
       }
 
    this.data = this.httpClient.put(this.url+"/"+this.ProductId, dataJson);

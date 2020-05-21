@@ -6,7 +6,9 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DatePipe } from '@angular/common';
 import { AgGridModule } from 'ag-grid-angular';
 
+/*import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
+import {TokenInterceptorService} from '../../../token-interceptor.service';*/
 
 
 import {
@@ -118,6 +120,8 @@ import { MaterialRoutes } from "../material/app-material.routing";
 
   declarations: [AppTourComponent],
   providers: [DatePipe]
+  /*,
+   {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}]*/
 },
 
 )

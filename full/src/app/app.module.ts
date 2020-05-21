@@ -21,7 +21,8 @@ import { AppComponent } from './app.component';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TokenInterceptorService} from '../token-interceptor.service';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -72,7 +73,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   declarations: [AppComponent, DialogOrderComponent],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },
-   { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }
+   { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
+   {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })
