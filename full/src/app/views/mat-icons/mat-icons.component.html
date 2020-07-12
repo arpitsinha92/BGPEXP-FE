@@ -1,35 +1,55 @@
-<mat-card class="p-0 mb-1">
-  <mat-card-title class="mat-bg-primary">
-    <div class="card-title-text">Easy to use</div>
-  </mat-card-title>
-  <mat-card-content>
-    <h3>HTML</h3>
-    <p><code>&#x3c;mat-icon&#x3e;3d_rotation&#x3c;/mat-icon&#x3e;</code></p>
-    <h3>Output</h3>
-    <mat-icon>3d_rotation</mat-icon>
-  </mat-card-content>
-</mat-card>
+<mat-card class="p-0"  [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+    <mat-card-content class="p-0">
+      <ngx-datatable
+            class="material ml-0 mr-0"
+            [rows]="tripList" 
+            [columnMode]="'flex'"
+            [headerHeight]="50"
+            [footerHeight]="50"
+            [limit]="10"
+            [rowHeight]="'auto'">
+            <ngx-datatable-column name="Trip ID" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.quantity}} 
+              </ng-template>
+            </ngx-datatable-column> 
+  
+            <ngx-datatable-column name="Dispatcher Name" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.unit}} 
+              </ng-template>
+            </ngx-datatable-column> 
+  
+            <ngx-datatable-column name="No of Orders" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.price}} 
+              </ng-template>
+            </ngx-datatable-column> 
 
-<mat-card class="p-0">
-  <mat-card-title class="mat-bg-primary">
-    <div class="card-title-text">Material icon list</div>
-  </mat-card-title>
-  <mat-card-content>
-    <div 
-    fxLayout="row wrap"
-    fxLayoutAlign="start stretch"
-    class="text-center">
-      <div 
-      [style.marginBottom]="'2rem'"
-      [ngStyle.gt-sm]="{'width': '20%'}"
-      [ngStyle.sm]="{'width': '50%'}"
-      [ngStyle.lt-sm]="{'width': '100%'}" 
-      *ngFor="let icon of icons">
-        <mat-icon
-        class="mb-1" 
-        [style.fontSize]="'32px'">{{icon}}</mat-icon> <br>
-        <div>{{icon}}</div>
-      </div>
-    </div>
-  </mat-card-content>
-</mat-card>
+            <ngx-datatable-column name="Amount to be Collected" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.price}} 
+              </ng-template>
+            </ngx-datatable-column> 
+            <ngx-datatable-column name="Actual Amount" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.price}} 
+              </ng-template>
+            </ngx-datatable-column> 
+
+            <ngx-datatable-column name="Status" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+               {{row?.price}} 
+              </ng-template>
+            </ngx-datatable-column> 
+
+            <ngx-datatable-column name="Actions" [flexGrow]="1">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <button mat-icon-button mat-sm-button color="primary" title="Edit" class="mr-1" (click)="editProduct(row)"><mat-icon>edit</mat-icon></button>
+                <button mat-icon-button mat-sm-button color="accent" title="Description" (click)="productDetails(row)"><mat-icon>description</mat-icon></button>
+              </ng-template>
+            </ngx-datatable-column>
+             
+          </ngx-datatable>
+    </mat-card-content>
+  </mat-card>

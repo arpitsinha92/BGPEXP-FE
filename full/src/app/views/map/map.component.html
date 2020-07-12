@@ -3,19 +3,18 @@
 
   <label><strong>Dispatcher Name</strong></label><br/>
 
-  <select [(ngModel)]="dispatcher" style="width: 25%;" placeholder="Dispatcher Name">
+  <select [(ngModel)]="dispatcherID" style="width: 25%;" placeholder="Dispatcher Name">
       <!-- <option value="0">--Select Category--</option> -->
       <option *ngFor="let s of dispatcherList"  value={{s._id}} >
           {{s.name}}
       </option>
   </select>
 &nbsp;
-  <button color="primary" (click)="assignorders()">Assign Orders</button>
+  <button mat-raised-button color="primary" (click)="assignorders(dispatcherID)">Assign Orders</button>
 </div>
-<div class="div">
-    <mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
-        <mat-card-content class="p-0">
-          <ngx-datatable
+
+
+<ngx-datatable
                 class="material ml-0 mr-0"
                 [rows]="OrderList"
                 [columnMode]="'flex'"
@@ -24,29 +23,33 @@
                 [limit]="10"
                 [rowHeight]="'auto'"
                 [selected]="selected"
-                (select)='onSelect($event)' >
+          [selectionType]="'checkbox'"
+          [selectAllRowsOnPage]="false"
+          (select)='onSelect($event)'>
 
-                <ngx-datatable-column name="Select" [flexGrow]="1"
+          <ngx-datatable-column name="Select All" [flexGrow]="1"
 
 
-                  [sortable]="false"
-                  [canAutoResize]="false"
-                  [draggable]="false"
-                  [resizeable]="false"
-                  [headerCheckboxable]="true"
-                  [checkboxable]="true"
-                  >
+          [sortable]="false"
+          [canAutoResize]="false"
+          [draggable]="false"
+          [resizeable]="false"
+          [headerCheckboxable]="true"
+          [checkboxable]="true"
+          >
 
-              </ngx-datatable-column>
+      </ngx-datatable-column> 
+
+        
                 <ngx-datatable-column name="Order Number" [flexGrow]="1">
                   <ng-template let-row="row" ngx-datatable-cell-template>
-                   {{row?._id}}
+                   {{row?.order_id}}
                   </ng-template>
                 </ngx-datatable-column>
 
                 <ngx-datatable-column name="Customer Name" [flexGrow]="1">
                   <ng-template let-row="row" ngx-datatable-cell-template>
-                   {{row?.name}}
+                   {{row?.user.name}}
                   </ng-template>
                 </ngx-datatable-column>
 
@@ -58,7 +61,7 @@
 
                 <ngx-datatable-column name="Bill Date" [flexGrow]="1">
                   <ng-template let-row="row" ngx-datatable-cell-template>
-                   {{row?.ordered_date}}
+                   {{row?.createdOn | date}}
                   </ng-template>
                 </ngx-datatable-column>
 
@@ -82,10 +85,8 @@
 
                     <button mat-icon-button mat-sm-button color="warn" title="update payment" (click)="updatePayment(row)"><mat-icon>update</mat-icon></button>
 
+                    <button mat-icon-button mat-sm-button color="primary" title="Generate Invoice" (click)="GenerateInvoice(row)"><mat-icon>receipt</mat-icon></button>
                   </ng-template>
                 </ngx-datatable-column>
               </ngx-datatable>
-        </mat-card-content>
-      </mat-card>
-</div>
 </div>

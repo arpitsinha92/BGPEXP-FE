@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { AppLoaderService } from '../../shared/services/app-loader/app-loader.service';
 import {FormGroup, FormControl, Validators}  from '@angular/forms';
-import { stringify } from '@angular/core/src/render3/util';
+// import { stringify } from '@angular/core/src/render3/util';
+//import {stringify} from '@angular/core/src/r3_symbols'
 import { variable } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'website',
@@ -37,7 +38,7 @@ export class WebsiteComponent  {
       mdfLogin(data) {
         this.emailId = data.emailId;
         this.password = data.password;
-        alert(JSON.stringify(data));
+       // alert(JSON.stringify(data));
       }
     
       closeModalDialog(){

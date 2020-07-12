@@ -95,7 +95,7 @@ export const rootRouterConfig: Routes = [
       {
         path: 'Delivery',
         loadChildren: './views/charts/charts.module#AppChartsModule',
-        data: { title: 'Delivery Boy', breadcrumb: 'Delivery Boy'}
+        data: { title: 'Dispatcher', breadcrumb: 'Dispatcher'}
       },
       {
         path: 'Orders',
@@ -103,9 +103,9 @@ export const rootRouterConfig: Routes = [
         data: { title: 'Orders', breadcrumb: 'Orders'}
       },
       {
-        path: 'dragndrop',
+        path: 'Configuration',
         loadChildren: './views/dragndrop/dragndrop.module#DragndropModule',
-        data: { title: 'Drag and Drop', breadcrumb: 'DND'}
+        data: { title: 'Configuration', breadcrumb: 'Configuration'}
       },
       {
         path: 'inbox',
@@ -135,9 +135,9 @@ export const rootRouterConfig: Routes = [
         data: { title: 'Shop', breadcrumb: 'SHOP'}
       },
       {
-        path: 'icons',
+        path: 'trip',
         loadChildren: './views/mat-icons/mat-icons.module#MatIconsModule',
-        data: { title: 'Icons', breadcrumb: 'MATICONS'}
+        data: { title: 'Trip', breadcrumb: 'Trip'}
       }
     ]
   },

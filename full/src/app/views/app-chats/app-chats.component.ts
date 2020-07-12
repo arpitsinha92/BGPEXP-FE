@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { MediaChange, ObservableMedia } from '@angular/flex-layout';
-import { MatSidenav, MatDialog } from '@angular/material';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { MatSidenav } from '@angular/material/sidenav';
+import {MatDialog} from '@angular/material/dialog';
 import { ChatService } from './chat.service';
 
 @Component({
@@ -25,7 +26,7 @@ export class AppChatsComponent implements OnInit, OnDestroy {
 
 
   constructor(
-    private media: ObservableMedia, 
+    private media: MediaObserver, 
     public chatService: ChatService
   ) {
     console.log(chatService.chats)
@@ -53,7 +54,7 @@ export class AppChatsComponent implements OnInit, OnDestroy {
   chatSideBarInit() {
     this.isMobile = this.media.isActive('xs') || this.media.isActive('sm');
     this.updateSidenav();
-    this.screenSizeWatcher = this.media.subscribe((change: MediaChange) => {
+    this.screenSizeWatcher = this.media.media$.subscribe((change: MediaChange) => {
       this.isMobile = (change.mqAlias === 'xs') || (change.mqAlias === 'sm');
       this.updateSidenav();
     });

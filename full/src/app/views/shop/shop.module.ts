@@ -3,25 +3,24 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { 
-  MatIconModule,
-  MatButtonModule,
-  MatCardModule,
-  MatMenuModule,
-  MatSlideToggleModule,
-  MatChipsModule,
-  MatCheckboxModule,
-  MatRadioModule,
-  MatTabsModule,
-  MatInputModule,
-  MatSelectModule,
-  MatSliderModule,
-  MatExpansionModule,
-  MatSnackBarModule,
-  MatListModule,
-  MatSidenavModule,
-  MatRippleModule
- } from '@angular/material';
+import { MatIconModule} from '@angular/material/icon';
+  // MatButtonModule,
+  // MatCardModule,
+  // MatMenuModule,
+  // MatSlideToggleModule,
+  // MatChipsModule,
+  // MatCheckboxModule,
+  // MatRadioModule,
+  // MatTabsModule,
+  // MatInputModule,
+  // MatSelectModule,
+  // MatSliderModule,
+  // MatExpansionModule,
+  // MatSnackBarModule,
+  // MatListModule,
+  // MatSidenavModule,
+  // MatRippleModule
+ 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { StarRatingModule } from 'angular-star-rating';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -41,22 +40,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     ReactiveFormsModule,
     FlexLayoutModule,
     MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatMenuModule,
-    MatSlideToggleModule,
-    MatChipsModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatRippleModule,
-    MatTabsModule,
-    MatInputModule,
-    MatSelectModule,
-    MatSliderModule,
-    MatExpansionModule,
-    MatSnackBarModule,
-    MatListModule,
-    MatSidenavModule,
+   
     StarRatingModule,
     NgxPaginationModule,
     NgxDatatableModule,

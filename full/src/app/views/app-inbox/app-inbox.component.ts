@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { MediaChange, ObservableMedia } from "@angular/flex-layout";
-import { MatSidenav, MatDialog } from '@angular/material';
-
+import { MediaChange, MediaObserver } from "@angular/flex-layout";
+import { MatDialog } from '@angular/material/dialog';
+import {MatSidenav} from '@angular/material/sidenav';
 import { AppInboxService } from './app-inbox.service';
 import { MailComposeComponent } from './mail-compose.component';
 
@@ -23,7 +23,7 @@ export class AppInboxComponent implements OnInit, OnDestroy {
 
 
   constructor(private router: Router,
-    private media: ObservableMedia,
+    private media: MediaObserver,
     public composeDialog: MatDialog,
     private inboxService: AppInboxService) { }
 
@@ -59,7 +59,7 @@ export class AppInboxComponent implements OnInit, OnDestroy {
   inboxSideNavInit() {
     this.isMobile = this.media.isActive('xs') || this.media.isActive('sm');
     this.updateSidenav();
-    this.screenSizeWatcher = this.media.subscribe((change: MediaChange) => {
+    this.screenSizeWatcher = this.media.media$.subscribe((change: MediaChange) => {
       this.isMobile = (change.mqAlias == 'xs') || (change.mqAlias == 'sm');
       this.updateSidenav();
     });

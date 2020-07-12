@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { MatSnackBar, MatSidenav } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatSidenav} from '@angular/material/sidenav';
 import { ShopService, CartItem } from '../shop.service';
 import { Product } from '../../../shared/models/product.model';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms'

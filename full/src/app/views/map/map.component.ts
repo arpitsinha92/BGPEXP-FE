@@ -7,14 +7,15 @@ import {SelectionModel} from '@angular/cdk/collections';
 import { Router } from '@angular/router'
 import { AppLoaderService } from '../../shared/services/app-loader/app-loader.service';
 import {MatTableDataSource} from '@angular/material/table';
-import { MatSnackBar, getMatFormFieldMissingControlError } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {getMatFormFieldMissingControlError} from '@angular/material/form-field';
 import {MatDialog} from '@angular/material/dialog';
 import * as hopscotch from 'hopscotch';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { startWith, map } from 'rxjs/operators';
-import {VERSION} from '@angular/material';
+import {VERSION} from '@angular/material/core';
 
 import { DialogOrderComponent } from '../../views/dialog-order/dialog-order.component';
 
@@ -31,8 +32,8 @@ import { empty } from 'rxjs';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  ApiUrl: any='http://192.168.0.101:5000/';
-  url : any = this.ApiUrl+ 'Order';
+  ApiUrl: any='http://192.168.0.107:5000/';
+  url : any = this.ApiUrl+ 'order';
   data: any;
   row: any;
   OrderList: any;
@@ -42,6 +43,8 @@ export class MapComponent implements OnInit {
   dispatcher: any;
   rows= [];
   selected = []
+selectedID: any[] = [];
+dispatcherID: any;
 
   constructor(public httpClient: HttpClient, public confirmService: AppConfirmService, public dialog: MatDialog) { }
 
@@ -63,9 +66,14 @@ export class MapComponent implements OnInit {
         this.dataSource.data.forEach(row => this.selection.select(row));
 
   }
-  onSelect(event)
+  onSelect(row)
   {
-console.log(event)
+    this.selectedID =[]
+    for(let i=0;i<row.selected.length;i++)
+    {
+      this.selectedID.push(row.selected[i]._id);
+    }
+
   }
     checkboxLabel() {
 
@@ -81,21 +89,41 @@ console.log(event)
   {
     this.data = this.httpClient.get(this.ApiUrl + "dispatcher");
     this.data.subscribe(data =>{
-      console.log(data);
       this.dispatcherList = data.dispatchers;
     })
   }
 
+  mssg: string;
   assignorders()
   {
+
+
+    var dataJson = {
+      dispatcher_id: this.dispatcherID,
+      orders: this.selectedID
+       };
+
+       this.data = this.httpClient.post(this.ApiUrl+ "trip/createTrip", dataJson);
+
+       this.data.subscribe(data =>{
+
+        this.mssg = data.message;
+
+        alert(this.mssg);
+
+        this.getAllOrder();
+       });
+
 
   }
 
  getAllOrder()
  {
-  this.data = this.httpClient.get(this.url);
+   
+  this.data = this.httpClient.get(this.ApiUrl + "order");
   this.data.subscribe(data =>{
     this.OrderList = data.orders;
+    
     this.rows = data.orders;
   })
  }

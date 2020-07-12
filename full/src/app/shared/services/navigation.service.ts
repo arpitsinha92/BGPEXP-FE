@@ -459,9 +459,9 @@ export class NavigationService {
       state: 'Orders'
     },
     {
-      name: 'Delivery Boy',
+      name: 'Dispatcher',
       type: 'link',
-      tooltip: 'Delivery Boy',
+      tooltip: 'Dispatcher',
       icon: 'motorcycle',
       state: 'Delivery'
     },
@@ -471,14 +471,22 @@ export class NavigationService {
       tooltip: 'Create Order',
       icon: 'view_list',
       state: 'CreateOrder'
-    }
-    // {
-    //   name: 'DND',
-    //   type: 'link',
-    //   tooltip: 'Drag and Drop',
-    //   icon: 'adjust',
-    //   state: 'dragndrop'
-    // },
+    },
+    {
+        name: 'Trip',
+        type: 'link',
+        tooltip: 'Trip',
+        icon: 'local_shipping',
+        state: 'trip'
+      },
+
+    {
+      name: 'Configuration',
+      type: 'link',
+      tooltip: 'Configuration',
+      icon: 'settings',
+      state: 'Configuration'
+    },
     // {
     //   name: 'SESSIONS',
     //   type: 'dropDown',
@@ -507,13 +515,7 @@ export class NavigationService {
     //     { name: 'BLANK', state: 'blank' }
     //   ]
     // },
-    // {
-    //   name: 'MATICONS',
-    //   type: 'link',
-    //   tooltip: 'Material Icons',
-    //   icon: 'store',
-    //   state: 'icons'
-    // },
+    // 
     // {
     //   name: 'Multi Level',
     //   type: 'dropDown',

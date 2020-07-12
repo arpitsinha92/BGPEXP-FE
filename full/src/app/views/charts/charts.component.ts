@@ -8,14 +8,14 @@ import {HttpParams} from "@angular/common/http";
 import { Router } from '@angular/router'
 import { AppLoaderService } from '../../shared/services/app-loader/app-loader.service';
 
-import { MatSnackBar, getMatFormFieldMissingControlError } from '@angular/material';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {getMatFormFieldMissingControlError} from '@angular/material/form-field';
 import * as hopscotch from 'hopscotch';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder, FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { startWith, map } from 'rxjs/operators';
-import {VERSION} from '@angular/material';
+import {VERSION} from '@angular/material/core';
 
 
 import {Pipe, PipeTransform} from '@angular/core';
@@ -32,7 +32,7 @@ import { empty } from 'rxjs';
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
-  url: any='http://192.168.0.7:5000/';
+  url: any='http://192.168.0.107:5000/';
   showdiv: any;
   deletetitle : any = 'Delete Dispatcher';
   deletetext : any = 'Are you sure do you really want to delete this Dispatcher?';

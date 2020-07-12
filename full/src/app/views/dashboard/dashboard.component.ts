@@ -8,14 +8,14 @@ import {HttpParams} from "@angular/common/http";
 import { Router } from '@angular/router'
 import { AppLoaderService } from '../../shared/services/app-loader/app-loader.service';
 
-import { MatSnackBar, getMatFormFieldMissingControlError } from '@angular/material';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
+import {getMatFormFieldMissingControlError} from '@angular/material/form-field';
 import * as hopscotch from 'hopscotch';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CustomValidators } from 'ng2-validation';
 import { startWith, map } from 'rxjs/operators';
-import {VERSION} from '@angular/material';
+import {VERSION} from '@angular/material/core';
 
 
 import {Pipe, PipeTransform} from '@angular/core';
@@ -53,7 +53,7 @@ export interface status {
   animations: egretAnimations
 })
 export class DashboardComponent implements OnInit {
-  ApiUrl: any='http://192.168.0.101:5000/';
+  ApiUrl: any='http://192.168.0.107:5000/';
   url : any = this.ApiUrl+ 'product';
   urlCat : any = this.ApiUrl+ 'category';
   selectedFile: File = null;
@@ -232,8 +232,7 @@ this.getAllProduct();
       name : this.Productname,
       category_id : this.Category,
       hindi_name : this.HindiProductname,
-      quantity : this.rows.value,
-      accesstoken : this.accesstoken
+      quantity : this.rows.value
     }
 
  this.data = this.httpClient.post(this.url,dataJson);
@@ -333,7 +332,7 @@ this.getAllProduct();
     this.descriptionCategoryName = row.category_id.name;
     this.descriptionProductHindiName = row.hindi_name;
     this.ProductDescriptionList = row.quantity;
-    console.log(this.ProductDescriptionList);
+    //console.log(this.ProductDescriptionList);
   }
 
   backtoProductmainScreen ()

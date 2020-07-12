@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { 
-  MatIconModule,
-  MatCardModule,
-  MatMenuModule,
-  MatProgressBarModule,
-  MatButtonModule,
-  MatChipsModule,
-  MatListModule,
-  MatGridListModule
- } from '@angular/material';
+import { MatIconModule} from '@angular/material/icon';
+ 
+  import {MatCardModule} from '@angular/material/card';
+  import {MatMenuModule} from '@angular/material/menu';
+  import {MatProgressBarModule} from '@angular/material/progress-bar';
+  import {MatButtonModule} from '@angular/material/button';
+  import {MatChipsModule} from '@angular/material/chips';
+  import {MatListModule} from '@angular/material/list';
+  import {MatGridListModule} from '@angular/material/grid-list';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { ChartsModule } from 'ng2-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { SharedModule } from '../../shared/shared.module';
 

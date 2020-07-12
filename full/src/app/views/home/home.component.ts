@@ -2,15 +2,16 @@ import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild } from '@angular
 import { Router } from '@angular/router'
 import { AppLoaderService } from '../../shared/services/app-loader/app-loader.service';
 import {NgForm} from '@angular/forms';
+
 import { HttpClient } from '@angular/common/http';
 import {HttpParams} from "@angular/common/http";
-import { MatProgressBar, MatButton } from '@angular/material';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import {MatButton} from '@angular/material/button';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
-import {MatProgressBarModule} from '@angular/material';
-
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 // import PerfectScrollbar from 'perfect-scrollbar';
-//export const ApiUrl='http://192.168.0.8:5000/';
+//export const ApiUrl='http://192.168.0.107:5000/';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,13 +25,15 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   /****** Only for demo) **********/
 //apiUrl:any="http://192.168.2.27:99";
   username: string;
-  ApiUrl: string ='http://192.168.0.101:5000/webUser/login';
+  ApiUrl: string ='http://192.168.0.107:5000/webUser/login';
   password: string;
   data: any;
   msg: any;
   token: string;
   warningmsg: string;
   authenticateMsg: string;
+  invalidInput: boolean = false;
+
   public versions: any[] = [
     {
       name: 'Side Navigation',
@@ -225,6 +228,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 }
 
 tokenx: any;
+errorMsg: string;
 authenticateUser()
 {
   // this.tokenx = "abc";
@@ -238,16 +242,26 @@ authenticateUser()
       this.data = this.httpClient.post(this.ApiUrl, params);
 this.data.subscribe(data =>{
 this.msg = data.message;
-this.token = data.token;
-
-alert(this.token);
-
-localStorage.setItem("tokenvalue",this.token);
 if(this.msg == "Login Successful")
 {
+  this.token = data.token;
+  localStorage.setItem("tokenvalue",this.token);
   this.router.navigateByUrl('/Products');
 }
-});
+},error => {
+ if(error.error.error == "User not found")
+ {
+this.invalidInput = true;
+this.errorMsg = error.error.error;
+ }
+ else
+ {
+  this.invalidInput = true;
+  this.errorMsg = error.error.error;
+ }
+}
+);
+
 }
 
 

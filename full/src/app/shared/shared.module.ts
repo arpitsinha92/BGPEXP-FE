@@ -6,26 +6,44 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TranslateModule } from '@ngx-translate/core';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
-import { 
-  MatSidenavModule,
-  MatListModule,
-  MatTooltipModule,
-  MatOptionModule,
-  MatSelectModule,
-  MatMenuModule,
-  MatSnackBarModule,
-  MatGridListModule,
-  MatToolbarModule,
-  MatIconModule,
-  MatButtonModule,
-  MatRadioModule,
-  MatCheckboxModule,
-  MatCardModule,
-  MatProgressSpinnerModule,
-  MatRippleModule,
-  MatDialogModule
-} from '@angular/material';
-
+// import { 
+//   MatSidenavModule,
+//   MatListModule,
+//   MatTooltipModule,
+//   MatOptionModule,
+//   MatSelectModule,
+//   MatMenuModule,
+//   MatSnackBarModule,
+//   MatGridListModule,
+//   MatToolbarModule,
+//   MatIconModule,
+//   MatButtonModule,
+//   MatRadioModule,
+//   MatCheckboxModule,
+//   MatCardModule,
+//   MatProgressSpinnerModule,
+//   MatRippleModule,
+//   MatDialogModule
+// } from '@angular/material';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRippleModule} from '@angular/material/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { MatIconModule} from '@angular/material/icon';
+ import {MatButtonModule} from '@angular/material/button';
+ import {MatToolbarModule} from '@angular/material/toolbar';
+ import {MatSidenavModule} from '@angular/material/sidenav';
+ import {MatMenuModule} from '@angular/material/menu';
+ import {MatInputModule} from '@angular/material/input';
+ import {MatDialogModule} from '@angular/material/dialog';
+ import {MatListModule} from '@angular/material/list';
+ import {MatCheckboxModule} from '@angular/material/checkbox';
+ import {MatTooltipModule} from '@angular/material/tooltip';
+ import {MatExpansionModule} from '@angular/material/expansion';
 // ONLY REQUIRED FOR **SIDE** NAVIGATION LAYOUT
 import { HeaderSideComponent } from './components/header-side/header-side.component';
 import { SidebarSideComponent } from './components/sidebar-side/sidebar-side.component';

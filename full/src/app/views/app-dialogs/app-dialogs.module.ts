@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { 
-  MatInputModule,
-  MatCardModule,
-  MatListModule,
-  MatButtonModule
- } from '@angular/material';
+  MatInputModule} from '@angular/material/input';
+  // MatCardModule,
+  // MatListModule,
+  // MatButtonModule
+
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
 import { SharedModule } from '../../shared/shared.module';
 
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';

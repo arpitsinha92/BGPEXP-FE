@@ -8,8 +8,8 @@ import {
   ResolveEnd 
 } from '@angular/router';
 import { Subscription } from "rxjs";
-import { MatSidenav } from '@angular/material';
-import { MediaChange, ObservableMedia } from "@angular/flex-layout";
+import { MatSidenav } from '@angular/material/sidenav';
+import { MediaChange } from "@angular/flex-layout";
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../../services/theme.service';
 // import PerfectScrollbar from 'perfect-scrollbar';
@@ -37,8 +37,7 @@ export class AdminLayoutComponent implements OnInit, AfterViewInit {
     private router: Router,
     public translate: TranslateService,
     public themeService: ThemeService,
-    private layout: LayoutService,
-    private media: ObservableMedia
+    private layout: LayoutService
   ) {
     // Close sidenav after route change in mobile
     this.routerEventSub = router.events.pipe(filter(event => event instanceof NavigationEnd))

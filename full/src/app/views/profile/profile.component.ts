@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
 public imageurl : any;
 data: any;
 DispatchersList: any;
-url: any='http://192.168.0.8:5000/';
+url: any='http://192.168.0.107:5000/';
 showtable: boolean;
 showlistTable: boolean = false;
 showList: boolean = false;

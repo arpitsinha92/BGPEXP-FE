@@ -2,16 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import {
-  MatIconModule,
-  MatButtonModule,
-  MatSidenavModule,
-  MatMenuModule,
-  MatInputModule,
-  MatListModule,
-  MatToolbarModule,
-  MatCardModule
- } from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../../shared/shared.module'
 import { AppChatsComponent } from './app-chats.component';
@@ -20,6 +18,7 @@ import { ChatLeftSidenavComponent } from './chat-left-sidenav/chat-left-sidenav.
 import { ChatContentsComponent } from './chat-contents/chat-contents.component';
 import { ChatService } from './chat.service';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { fromEventPattern } from 'rxjs';
 
 @NgModule({
   imports: [

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatSnackBar,  MatCheckboxModule } from '@angular/material';
+import { MatSnackBar  } from '@angular/material/snack-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import * as hopscotch from 'hopscotch';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -37,7 +38,7 @@ export interface Category {
 
 export class AppTourComponent implements OnInit, OnDestroy {
 
-  ApiUrl: any='http://192.168.0.101:5000/';
+  ApiUrl: any='http://192.168.0.107:5000/';
   url : any = this.ApiUrl+ 'category';
   category: string;
 selectedFile: File = null;

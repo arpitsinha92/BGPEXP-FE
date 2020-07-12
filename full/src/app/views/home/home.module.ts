@@ -2,15 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
-import { 
-  MatProgressBarModule,
-  MatButtonModule,
-  MatInputModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatIconModule,
-  MatListModule,
- } from '@angular/material';
+//import { BrowserModule } from '@angular/platform-browser';
+import { MatProgressBarModule} from '@angular/material/progress-bar';
+ 
+ import {MatButtonModule} from '@angular/material/button';
+ import {MatInputModule} from '@angular/material/input';
+ import {MatCardModule} from '@angular/material/card';
+ import {MatCheckboxModule} from '@angular/material/checkbox';
+ import {MatIconModule} from '@angular/material/icon';
+ import {MatListModule} from '@angular/material/list';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
@@ -24,8 +25,13 @@ import { NotFoundComponent } from '../sessions/not-found/not-found.component';
 import { ErrorComponent } from '../sessions/error/error.component';
 import { HomeComponent } from './home.component';
 import { HomeRoutes } from './home.routing';
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+ 
 @NgModule({
   imports: [
+   // BrowserAnimationsModule,
+    //BrowserModule,
     CommonModule,
     MatListModule,
     FormsModule,

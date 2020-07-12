@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {
   MatInputModule
- } from '@angular/material';
+ } from '@angular/material/input';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
