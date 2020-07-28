@@ -32,7 +32,7 @@ import { empty } from 'rxjs';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  ApiUrl: any='http://192.168.0.107:5000/';
+  ApiUrl: any='http://192.168.0.105:5000/';
   url : any = this.ApiUrl+ 'order';
   data: any;
   row: any;

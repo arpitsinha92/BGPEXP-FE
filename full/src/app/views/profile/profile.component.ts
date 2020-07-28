@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
 public imageurl : any;
 data: any;
 DispatchersList: any;
-url: any='http://192.168.0.107:5000/';
+url: any='http://192.168.0.105:5000/';
 showtable: boolean;
 showlistTable: boolean = false;
 showList: boolean = false;
@@ -22,7 +22,7 @@ showList: boolean = false;
 
   ngOnInit() {
     this.showtable = true;
-    this.getallDispatchers();
+   //this.getallDispatchers();
     this.imageurl = ["https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg", "https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg", "https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"]
     this.activeView = this.router.snapshot.params['view']
   }
@@ -30,6 +30,7 @@ showList: boolean = false;
   {
     this.data = this.httpClient.get(this.url+"dispatcher");
     this.data.subscribe(data =>{
+      console.log(data);
       this.DispatchersList = data.dispatchers;
 
     });

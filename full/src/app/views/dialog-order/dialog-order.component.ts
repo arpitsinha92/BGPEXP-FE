@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./dialog-order.component.scss']
 })
 export class DialogOrderComponent implements OnInit {
-  ApiUrl: any='http://192.168.0.107:5000/';
+  ApiUrl: any='http://192.168.0.105:5000/';
   url : any = this.ApiUrl+ 'dispatcher';
   data: any;
   dispatcher: any;

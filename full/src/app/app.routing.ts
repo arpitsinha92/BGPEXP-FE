@@ -45,10 +45,41 @@ export const rootRouterConfig: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
+        //done
+        path: 'Category',
+        loadChildren: './views/app-tour/app-tour.module#AppTourModule',
+        data: { title: 'Category', breadcrumb: 'Category'}
+      },
+      {
+        //done
         path: 'Products',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule',
         data: { title: 'Products', breadcrumb: 'Products'}
       },
+      {
+        //
+        path: 'Delivery',
+        loadChildren: './views/charts/charts.module#AppChartsModule',
+        data: { title: 'Dispatcher', breadcrumb: 'Dispatcher'}
+      },
+      {
+        //
+        path: 'Orders',
+        loadChildren: './views/map/map.module#AppMapModule',
+        data: { title: 'Orders', breadcrumb: 'Orders'}
+      },
+      {
+        //
+        path: 'Configuration',
+        loadChildren: './views/dragndrop/dragndrop.module#DragndropModule',
+        data: { title: 'Configuration', breadcrumb: 'Configuration'}
+      },
+      {
+        //
+        path: 'CreateOrder',
+        loadChildren: './views/profile/profile.module#ProfileModule',
+        data: { title: 'Custom Order', breadcrumb: 'Custom Order'}
+      },   
       {
         path: 'material',
         loadChildren: './views/material/app-material.module#AppMaterialModule',
@@ -59,11 +90,7 @@ export const rootRouterConfig: Routes = [
         loadChildren: './views/app-dialogs/app-dialogs.module#AppDialogsModule',
         data: { title: 'Dialogs', breadcrumb: 'DIALOGS'}
       },
-      {
-        path: 'CreateOrder',
-        loadChildren: './views/profile/profile.module#ProfileModule',
-        data: { title: 'Custom Order', breadcrumb: 'Custom Order'}
-      },
+      
       {
         path: 'others',
         loadChildren: './views/others/others.module#OthersModule',
@@ -74,14 +101,7 @@ export const rootRouterConfig: Routes = [
         loadChildren: './views/tables/tables.module#TablesModule',
         data: { title: 'Tables', breadcrumb: 'TABLES'}
       },
-      {
-
-
-        path: 'Category',
-        loadChildren: './views/app-tour/app-tour.module#AppTourModule',
-        data: { title: 'Category', breadcrumb: 'Category'}
-      },
-
+      
       // {
       //   path: 'DeliveryBoy',
       //   loadChildren: './views/delivery-boy/delivery-boy.module#DeliveryBoyModule',
@@ -92,21 +112,7 @@ export const rootRouterConfig: Routes = [
         loadChildren: './views/forms/forms.module#AppFormsModule',
         data: { title: 'Forms', breadcrumb: 'FORMS'}
       },
-      {
-        path: 'Delivery',
-        loadChildren: './views/charts/charts.module#AppChartsModule',
-        data: { title: 'Dispatcher', breadcrumb: 'Dispatcher'}
-      },
-      {
-        path: 'Orders',
-        loadChildren: './views/map/map.module#AppMapModule',
-        data: { title: 'Orders', breadcrumb: 'Orders'}
-      },
-      {
-        path: 'Configuration',
-        loadChildren: './views/dragndrop/dragndrop.module#DragndropModule',
-        data: { title: 'Configuration', breadcrumb: 'Configuration'}
-      },
+      
       {
         path: 'inbox',
         loadChildren: './views/app-inbox/app-inbox.module#AppInboxModule',

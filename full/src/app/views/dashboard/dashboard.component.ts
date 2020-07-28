@@ -53,7 +53,7 @@ export interface status {
   animations: egretAnimations
 })
 export class DashboardComponent implements OnInit {
-  ApiUrl: any='http://192.168.0.107:5000/';
+  ApiUrl: any='http://192.168.0.105:5000/';
   url : any = this.ApiUrl+ 'product';
   urlCat : any = this.ApiUrl+ 'category';
   selectedFile: File = null;
@@ -76,7 +76,6 @@ export class DashboardComponent implements OnInit {
   descriptionImage : any;
   accesstoken: any;
   constructor(private fb: FormBuilder, public httpClient: HttpClient, public confirmService: AppConfirmService) {
-
     this.addForm = this.fb.group({
       items: [null, Validators.required],
       items_value: ['no', Validators.required]

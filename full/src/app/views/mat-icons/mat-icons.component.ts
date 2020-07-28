@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class MatIconsComponent implements OnInit {
 
   data: any;
-  ApiUrl: any='http://192.168.0.107:5000/';
+  ApiUrl: any='http://192.168.0.105:5000/';
   url : any = this.ApiUrl+ 'trip';
   tripList: any;
   constructor(public httpClient: HttpClient) { }

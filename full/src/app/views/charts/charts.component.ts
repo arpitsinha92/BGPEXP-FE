@@ -32,7 +32,7 @@ import { empty } from 'rxjs';
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
-  url: any='http://192.168.0.107:5000/';
+  url: any='http://192.168.0.105:5000/';
   showdiv: any;
   deletetitle : any = 'Delete Dispatcher';
   deletetext : any = 'Are you sure do you really want to delete this Dispatcher?';

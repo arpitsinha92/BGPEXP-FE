@@ -11,7 +11,7 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 // import PerfectScrollbar from 'perfect-scrollbar';
-//export const ApiUrl='http://192.168.0.107:5000/';
+//export const ApiUrl='http://192.168.0.105:5000/';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   /****** Only for demo) **********/
 //apiUrl:any="http://192.168.2.27:99";
   username: string;
-  ApiUrl: string ='http://192.168.0.107:5000/webUser/login';
+  ApiUrl: string ='http://192.168.0.105:5000/webUser/login';
   password: string;
   data: any;
   msg: any;
@@ -156,8 +156,6 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
   signin() {
     const signinData = this.signinForm.value
-    console.log(signinData);
-
     this.submitButton.disabled = true;
     this.progressBar.mode = 'indeterminate';
   }
@@ -171,69 +169,11 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
 
-
-  // login(){
-
-  //   this.httpClient.post(this.apiUrl+'/getAuthendicateUserForCheck',{
-  //     StrUsrName:this.username,
-	// 	  StrPassword: this.password
-  //   })
-	//   .subscribe( res => {
-  //     this.authenticateMsg = res.toString();
-  //     alert(this.authenticateMsg);
-
-  //     if(this.authenticateMsg == "Logged in successfully")
-  //     {
-  //       this.router.navigateByUrl('/dashboard');
-  //     }
-  //     else
-  //     {
-  //       this.warningmsg = "Credential is wrong!!";
-  //     }
-	//   });
-  // }
-
-  login()
-{
-
-
-
-  // let url = ApiUrl+'/getAuthendicateUserForCheck';
-  //let params = {
-  //   StrUsrName:this.username,
-  //   StrPassword: this.password
-
-  // }
-  // this.httpClient.post(url, null, { params: params }).toPromise().then(
-  //   success => {
-  //     var data = success;
-  //     if(data == "Logged in successfully")
-  //     {
-  //       this.router.navigateByUrl('/dashboard');
-  //     }
-  //     else
-  //     {
-  //       alert('Credential is Wrong!!');
-  //       this.username = "";
-  //       this.password = "";
-  //       this.signinForm.reset();
-  //       this.router.navigateByUrl('/home');
-  //     }
-
-  //   },
-  //   error => {
-  //     console.log(error);
-  //   }
-  // );
-}
-
 tokenx: any;
 errorMsg: string;
+errMsg: boolean = false;
 authenticateUser()
 {
-  // this.tokenx = "abc";
-  // localStorage.setItem("tokenalue",this.tokenx);
-  // this.router.navigateByUrl('/Products');
     let params = {
         email:this.username,
         password: this.password
@@ -249,10 +189,14 @@ if(this.msg == "Login Successful")
   this.router.navigateByUrl('/Products');
 }
 },error => {
- if(error.error.error == "User not found")
+
+ if(error.error.error == "User Not Found")
  {
+   
 this.invalidInput = true;
 this.errorMsg = error.error.error;
+this.errMsg = true;
+//this.signinForm.reset();
  }
  else
  {
